@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;700&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <title>Rutik Gurav - Portfolio</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+            color: #ffffff;
+            scroll-behavior: smooth;
+            line-height: 1.6;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header a {
+            color: #00e676;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        header a:hover {
+            color: #ffffff;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url('https://source.unsplash.com/1920x1080/?technology,coding') center/cover no-repeat;
+            color: #ffffff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            animation: fadeInDown 2s;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin: 15px 0 25px;
+            animation: fadeInUp 2.5s;
+        }
+
+        .hero a {
+            padding: 10px 20px;
+            background: #00e676;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .hero a:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #1e3c72, #2a5298);
+            color: #ffffff;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #00e676;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .card p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .card a {
+            color: #00e676;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .card a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+        }
+
+        footer a {
+            color: #00e676;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Certificates Section */
+        .certificates {
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        .certificates h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .blog-posts-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .blog-post-item {
+            background: #ffffff;
+            color: #000000;
+            width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-post-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .blog-banner-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 15px;
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .blog-post-item:hover .blog-content {
+            bottom: 0;
+            opacity: 1;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .blog-item-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .blog-text {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            /* Full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+            /* Elegant gradient */
+            color: #ffffff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            /* Soft shadow on text */
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        /* Hero Content */
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            /* Space between photo and text */
+            max-width: 1200px;
+            /* Limit width for large screens */
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            /* Subtle transparent background */
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            /* Smooth shadow around the container */
+            animation: slideIn 1.5s ease-out;
+            /* Entry animation */
+        }
+
+        /* Hero Photo */
+        .hero-photo {
+            flex: 0 0 250px;
+            /* Fixed width for the photo */
+            max-width: 250px;
+            /* Ensure consistent size */
+            height: 250px;
+            border-radius: 50%;
+            /* Circular photo */
+            overflow: hidden;
+            /* Crop overflowing parts */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            /* Depth effect */
+            transition: transform 0.3s ease;
+            /* Smooth hover effect */
+        }
+
+        .hero-photo img {
+            width: 100%;
+            /* Cover entire circle */
+            height: 100%;
+            /* Maintain aspect ratio */
+            object-fit: cover;
+            /* Ensure the image fits nicely inside */
+        }
+
+        .hero-photo:hover {
+            transform: scale(1.1);
+            /* Slight zoom-in on hover */
+        }
+
+        /* Hero Text */
+        .hero-text {
+            text-align: left;
+            /* Align text to the left */
+            max-width: 600px;
+            /* Limit text width */
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            /* Main heading size */
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero-text .highlight {
+            color: #00e676;
+            /* Highlight color */
+        }
+
+        .hero-text p {
+            font-size: 1.5rem;
+            /* Subheading size */
+            margin-bottom: 30px;
+        }
+
+        /* Call-to-Action Button */
+        .btn-primary {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #000;
+            background: #00e676;
+            text-decoration: none;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            /* Button shadow */
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #ffffff;
+            transform: translateY(-5px);
+            /* Lift on hover */
+        }
+
+        /* Keyframe Animations */
+        @keyframes slideIn {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* General Section Styles */
+        section {
+            padding: 60px 20px;
+            margin: 20px auto;
+            text-align: center;
+            background: linear-gradient(120deg, #f8f9fa, #e9ecef);
+            /* Light gradient background */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            max-width: 1200px;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+            font-family: 'Merriweather', serif;
+            /* Elegant serif font */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: #00e676;
+            display: block;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        /* Card Styles */
+        .card {
+            background: #ffffff;
+            color: #333333;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+            max-width: 800px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* About Section */
+        #about .card p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            font-family: 'Roboto', sans-serif;
+            text-align: justify;
+        }
+
+        /* Skills Section */
+        #skills .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #skills .card ul li {
+            font-size: 1.2rem;
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
+            color: #555555;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        #skills .card ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* Projects Section */
+        #projects .card h3 {
+            font-size: 1.8rem;
+            font-family: 'Poppins', sans-serif;
+            color: #00e676;
+            margin-bottom: 10px;
+        }
+
+        #projects .card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666666;
+        }
+
+        #projects .card a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        #projects .card a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        section {
+            scroll-margin-top: 80px;
+            /* Adjust based on your header height */
+        }
+
+
+        /* Skills Section */
+        #skills {
+            padding: 50px 20px;
+            background-color: #f4f7fa;
+            color: #333;
+            text-align: center;
+        }
+
+        #skills h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #34495e;
+        }
+
+        .card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Skill Category */
+        .skill-category {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-category ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .skill-category li {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+
+        .skill-category li::before {
+            content: "✔️";
+            margin-right: 10px;
+            color: #2ecc71;
+        }
+
+        /* Responsiveness */
+        @media screen and (max-width: 768px) {
+            .card {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-category h3 {
+                font-size: 1.5rem;
+            }
+
+            .skill-category li {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* About Section */
+        #about {
+            padding: 50px 20px;
+            background-color: #ecf0f1;
+            color: #333;
+            text-align: center;
+        }
+
+        #about h2 {
+            font-size: 2.5rem;
+            color: #34495e;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .card1 {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #7f8c8d;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card1:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .card1 p {
+            margin-bottom: 20px;
+        }
+
+        .card1::before {
+            content: "📝";
+            font-size: 2rem;
+            color: #3498db;
+            margin-right: 10px;
+        }
+
+        /* Responsive Layout */
+        @media screen and (max-width: 768px) {
+            #about {
+                padding: 40px 10px;
+            }
+
+            .card1 {
+                padding: 20px;
+            }
+
+            #about h2 {
+                font-size: 2rem;
+            }
+
+            .card1 p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Education Section */
+        #education {
+            padding: 50px 20px;
+            background-color: #f4f7fa;
+            color: #333;
+            text-align: center;
+        }
+
+        #education h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .education-card {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            font-family: 'Roboto', sans-serif;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .education-card h3 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .education-card p {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+
+        .education-card .year {
+            display: block;
+            font-size: 1.1rem;
+            color: #3498db;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .education-card::before {
+            content: "🎓";
+            font-size: 2rem;
+            color: #3498db;
+            margin-right: 15px;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+        }
+
+        /* Responsive Layout */
+        @media screen and (max-width: 768px) {
+            #education {
+                padding: 40px 10px;
+            }
+
+            .education-card {
+                padding: 15px;
+            }
+
+            #education h2 {
+                font-size: 2rem;
+            }
+
+            .education-card h3 {
+                font-size: 1.6rem;
+            }
+
+            .education-card p {
+                font-size: 0.9rem;
+            }
+
+            .education-card .year {
+                font-size: 1rem;
+            }
+        }
+
+        /* Skills Section */
+        #skills {
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+        }
+
+        #skills h2 {
+            font-size: 2.5rem;
+            color: #34495e;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /*-------------------------------------------------------------------------*/
+        /* Skill Category */
+        .skill-category {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            position: relative;
+            transition: background-color 0.3s;
+        }
+
+        .skill-category:hover {
+            background-color: #ecf0f1;
+        }
+
+        /* Hover Effect on Course Name */
+        .skill-category h3 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Popup content (Hidden by default) */
+        .popup-content {
+            display: none;
+            padding: 10px 0;
+        }
+
+        .skill-category:hover .popup-content {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* List Styles */
+        .popup-content ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .popup-content li {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .popup-content li:hover {
+            color: #3498db;
+        }
+
+        /* Keyframe for popup content animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Layout */
+        @media screen and (max-width: 768px) {
+            .card {
+                padding: 15px;
+            }
+
+            .skill-category {
+                padding: 15px;
+            }
+
+            .skill-category h3 {
+                font-size: 1.5rem;
+            }
+
+            .popup-content ul {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* certificate Section */
+        .blog-posts-list{
+            justify-content: space-evenly;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>Rutik Gurav</h1>
+            <div>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#certificates">Certificates</a>
+                <a href="Rutik_Gurav_Software_Developer_Resume.pdf">Resume</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+        <div class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-photo">
+                <img src="Photo.jpg" alt="Rutik Gurav Photo">
+            </div>
+            <div class="hero-text">
+                <h1>Hello, I'm <span class="highlight">Rutik Gurav</span>!</h1>
+                <p>Java Developer | Full-Stack Enthusiast</p>
+                <a href="#contact" class="btn-primary">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="card1">
+            <p style="color: #000;">Self-Motivated and result-oriented full stack developer with expertise in software
+                development using Java seeking an entry-level position in an organization of repute using the skills and
+                knowledge possessed for organizational and self-development.”</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="card">
+            <div class="skill-category">
+                <h3>Java</h3>
+                <div class="popup-content">
+                    <ul>
+                        <li>Statement: Looping, Decision Making, Static and Non-Static</li>
+                        <li>OOPs: Encapsulation, Inheritance, Polymorphism, Abstraction</li>
+                        <li>Wrapper classes, Exception handling</li>
+                        <li>Collection Framework, String, Multi-Threading</li>
+                        <li>Java Tools: Edit +, Eclipse</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>SQL & RDBMS</h3>
+                <div class="popup-content">
+                    <ul>
+                        <li>Relational Model: Operators</li>
+                        <li>Functions: Aggregate, Single</li>
+                        <li>Sub Query: Nested, Co-related</li>
+                        <li>Joins & Normalization</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Advanced Java (J2EE)</h3>
+                <div class="popup-content">
+                    <ul>
+                        <li>APIs: JDBC, Servlets and JSP</li>
+                        <li>Frameworks: Hibernate with JPA, Spring (Spring IOC, Spring MVC & Spring Boot)</li>
+                        <li>Tools: MySQL Workbench, Postman, Eclipse (Enterprise Edition)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Web Technologies</h3>
+                <div class="popup-content">
+                    <ul>
+                        <li>HTML: Webpage Structuring</li>
+                        <li>CSS: Webpage Styling</li>
+                        <li>JavaScript: Dynamic Webpages</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="card">
+            <h3>Job Portal Application</h3>
+            <p>Full-stack application connecting job seekers with employers. Features include JWT authentication,
+                Material-UI integration, and RESTful APIs. <a
+                    href="https://github.com/gurav-rutik/Job-Portal-System-Backend.git" target="_blank">View
+                    Repository</a></p>
+        </div><br><br>
+        <div class="card">
+            <h3>Contact Management System</h3>
+            <p>Developed a secure contact management platform using Spring MVC and JPA. Includes advanced CRUD
+                operations and optimized performance. <a
+                    href="https://github.com/gurav-rutik/Contact-Management-System.git" target="_blank">View
+                    Repository</a></p>
+        </div><br><br>
+        <div class="card">
+            <h3>Contact Manager Application with Hibernate</h3>
+            <p>A Java console app for managing contacts using Hibernate ORM and MySQL. Features include CRUD operations
+                with efficient data persistence. <a
+                    href="https://github.com/gurav-rutik/Contact-Manager-Application-with-Hibernate"
+                    target="_blank">View Repository</a></p>
+        </div><br><br>
+        <div class="card">
+            <h3>E-Learning Web Platform</h3>
+            <p>Dynamic platform for course enrollment and management with responsive UI and real-time validation. <a
+                    href="https://gurav-rutik.github.io/E-Learning-Web-App/" target="_blank">View Live</a></p>
+        </div>
+    </section>
+
+
+
+
+    <section id="certificates">
+        <h2>Certificates</h2>
+        <div class="certificates-wrapper">
+            <div class="certificates">
+                <ul class="blog-posts-list">
+                    <li class="blog-post-item">
+                        <a href="#">
+
+                            <figure class="blog-banner-box">
+                                <img src="./certifications\Java Programming_page-0001.jpg"
+                                    alt="Design conferences in 2022" loading="lazy">
+                            </figure>
+
+                            <div class="blog-content">
+
+                                <div class="blog-meta">
+                                    <p class="blog-category">Design</p>
+
+                                    <span class="dot"></span>
+
+                                    <time datetime="2022-02-23">Jun 25, 2023</time>
+                                </div>
+
+                                <h3 class="h3 blog-item-title">Java Programming</h3>
+
+
+
+                            </div>
+
+                        </a>
+                    </li>
+
+                    <li class="blog-post-item">
+                        <a href="#">
+
+                            <figure class="blog-banner-box">
+                                <img src="./certifications\Data Structures & Algorithms in Java_page-0001.jpg"
+                                    alt="Best fonts every designer" loading="lazy">
+                            </figure>
+
+                            <div class="blog-content">
+
+                                <div class="blog-meta">
+                                    <p class="blog-category">Design</p>
+
+                                    <span class="dot"></span>
+
+                                    <time datetime="2022-02-23">Aug 01, 2023</time>
+                                </div>
+
+                                <h3 class="h3 blog-item-title">Data Structure and Algorithms in Java</h3>
+
+
+
+                            </div>
+
+                        </a>
+                    </li>
+
+                    <li class="blog-post-item">
+                        <a href="#">
+
+                            <figure class="blog-banner-box">
+                                <img src="./certifications\Spring Framework_page-0001.jpg"
+                                    alt="Design conferences in 2022" loading="lazy">
+                            </figure>
+
+                            <div class="blog-content">
+
+                                <div class="blog-meta">
+                                    <p class="blog-category">Design</p>
+
+                                    <span class="dot"></span>
+
+                                    <time datetime="2022-02-23">Apr 18, 2024</time>
+                                </div>
+
+                                <h3 class="h3 blog-item-title">Java Spring Framework 6 with Spring Boot 3</h3>
+
+
+
+                            </div>
+
+                        </a>
+                    </li>
+
+                    <li class="blog-post-item">
+                        <a href="#">
+
+                            <figure class="blog-banner-box">
+                                <img src="./certifications\Python Progeamming (1)_page-0001.jpg"
+                                    alt="Best fonts every designer" loading="lazy">
+                            </figure>
+
+                            <div class="blog-content">
+
+                                <div class="blog-meta">
+                                    <p class="blog-category">Design</p>
+
+                                    <span class="dot"></span>
+
+                                    <time datetime="2022-02-23">Fab 28, 2022</time>
+                                </div>
+
+                                <h3 class="h3 blog-item-title">Python Programming (Core & Advance)</h3>
+
+
+
+                            </div>
+
+                        </a>
+                    </li>
+
+                    <li class="blog-post-item">
+                        <a href="#">
+
+                            <figure class="blog-banner-box">
+                                <img src="./certifications\Python Programming_page-0001.jpg"
+                                    alt="Design conferences in 2022" loading="lazy">
+                            </figure>
+
+                            <div class="blog-content">
+
+                                <div class="blog-meta">
+                                    <p class="blog-category">Design</p>
+
+                                    <span class="dot"></span>
+
+                                    <time datetime="2022-02-23">Feb 28, 2022</time>
+                                </div>
+
+                                <h3 class="h3 blog-item-title">Python Programming (Core & Advance)</h3>
+
+
+
+                            </div>
+
+                        </a>
+                    </li>
+
+                    <li class="blog-post-item">
+                        <a href="#">
+
+                            <figure class="blog-banner-box">
+                                <img src="./certifications\Python Data Structure_page-0001.jpg"
+                                    alt="Best fonts every designer" loading="lazy">
+                            </figure>
+
+                            <div class="blog-content">
+
+                                <div class="blog-meta">
+                                    <p class="blog-category">Design</p>
+
+                                    <span class="dot"></span>
+
+                                    <time datetime="2022-02-23">Jan 14, 2022</time>
+                                </div>
+
+                                <h3 class="h3 blog-item-title">Python Data Structure</h3>
+
+
+
+                            </div>
+
+                        </a>
+                    </li>
+
+                    <li class="blog-post-item">
+                        <a href="#">
+
+                            <figure class="blog-banner-box">
+                                <img src="./certifications\Python Internship_page-0001.jpg"
+                                    alt="Design conferences in 2022" loading="lazy">
+                            </figure>
+
+                            <div class="blog-content">
+
+                                <div class="blog-meta">
+                                    <p class="blog-category">Design</p>
+
+                                    <span class="dot"></span>
+
+                                    <time datetime="2022-02-23">Feb 28, 2022</time>
+                                </div>
+
+                                <h3 class="h3 blog-item-title">Python Internship</h3>
+
+
+
+                            </div>
+
+                        </a>
+                    </li>
+
+                    <li class="blog-post-item">
+                        <a href="#">
+
+                            <figure class="blog-banner-box">
+                                <img src="./certifications\Web Design_page-0001.jpg" alt="Best fonts every designer"
+                                    loading="lazy">
+                            </figure>
+
+                            <div class="blog-content">
+
+                                <div class="blog-meta">
+                                    <p class="blog-category">Design</p>
+
+                                    <span class="dot"></span>
+
+                                    <time datetime="2022-02-23">Apr 11, 2022</time>
+                                </div>
+
+                                <h3 class="h3 blog-item-title">Web Design</h3>
+
+
+
+                            </div>
+
+                        </a>
+                    </li>
+
+                    <li class="blog-post-item">
+                        <a href="#">
+
+                            <figure class="blog-banner-box">
+                                <img src="./certifications\Computer Networking (CN)_page-0001.jpg"
+                                    alt="Design conferences in 2022" loading="lazy">
+                            </figure>
+
+                            <div class="blog-content">
+
+                                <div class="blog-meta">
+                                    <p class="blog-category">Design</p>
+
+                                    <span class="dot"></span>
+
+                                    <time datetime="2022-02-23">May 05, 2023</time>
+                                </div>
+
+                                <h3 class="h3 blog-item-title">Computer Networking (CN)</h3>
+
+
+
+                            </div>
+
+                        </a>
+                    </li>
+
+                    <li class="blog-post-item">
+                        <a href="#">
+
+                            <figure class="blog-banner-box">
+                                <img src="./certifications\Operating Systems(OS)_page-0001.jpg"
+                                    alt="Best fonts every designer" loading="lazy">
+                            </figure>
+
+                            <div class="blog-content">
+
+                                <div class="blog-meta">
+                                    <p class="blog-category">Design</p>
+
+                                    <span class="dot"></span>
+
+                                    <time datetime="2022-02-23">Jan 20, 2023</time>
+                                </div>
+
+                                <h3 class="h3 blog-item-title">Operating Systems(OS)</h3>
+
+
+
+                            </div>
+
+                        </a>
+                    </li>
+
+                    <li class="blog-post-item">
+                        <a href="#">
+
+                            <figure class="blog-banner-box">
+                                <img src="./certifications\Database Management Systems_page-0001.jpg"
+                                    alt="Design conferences in 2022" loading="lazy">
+                            </figure>
+
+                            <div class="blog-content">
+
+                                <div class="blog-meta">
+                                    <p class="blog-category">Design</p>
+
+                                    <span class="dot"></span>
+
+                                    <time datetime="2022-02-23">July 15, 2023</time>
+                                </div>
+
+                                <h3 class="h3 blog-item-title">Database Management Systems</h3>
+
+
+                            </div>
+
+                        </a>
+                    </li>
+
+                    <li class="blog-post-item">
+                        <a href="#">
+
+                            <figure class="blog-banner-box">
+                                <img src="./certifications\MongoDB_page-0001.jpg" alt="Best fonts every designer"
+                                    loading="lazy">
+                            </figure>
+
+                            <div class="blog-content">
+
+                                <div class="blog-meta">
+                                    <p class="blog-category">Design</p>
+
+                                    <span class="dot"></span>
+
+                                    <time datetime="2022-02-23">Jan 10, 2024</time>
+                                </div>
+
+                                <h3 class="h3 blog-item-title">MongoDB</h3>
+
+
+
+                            </div>
+
+                        </a>
+                    </li>
+
+                    <li class="blog-post-item">
+                        <a href="#">
+
+                            <figure class="blog-banner-box">
+                                <img src="./certifications\SQL_page-0001.jpg" alt="Design conferences in 2022"
+                                    loading="lazy">
+                            </figure>
+
+                            <div class="blog-content">
+
+                                <div class="blog-meta">
+                                    <p class="blog-category">Design</p>
+
+                                    <span class="dot"></span>
+
+                                    <time datetime="2022-02-23">Mar 15, 2024</time>
+                                </div>
+
+                                <h3 class="h3 blog-item-title">SQL</h3>
+
+
+
+                            </div>
+
+                        </a>
+                    </li>
+
+                    <li class="blog-post-item">
+                        <a href="#">
+
+                            <figure class="blog-banner-box">
+                                <img src="./certifications\Enterprises Network Security_page-0001.jpg"
+                                    alt="Best fonts every designer" loading="lazy">
+                            </figure>
+
+                            <div class="blog-content">
+
+                                <div class="blog-meta">
+                                    <p class="blog-category">Design</p>
+
+                                    <span class="dot"></span>
+
+                                    <time datetime="2022-02-23">Fab 27, 2022</time>
+                                </div>
+
+                                <h3 class="h3 blog-item-title">Enterprises Network Security</h3>
+
+
+
+                            </div>
+
+                        </a>
+                    </li>
+
+                    <li class="blog-post-item">
+                        <a href="#">
+
+                            <figure class="blog-banner-box">
+                                <img src="./certifications\AI-ML_page-0001.jpg" alt="Design conferences in 2022"
+                                    loading="lazy">
+                            </figure>
+
+                            <div class="blog-content">
+
+                                <div class="blog-meta">
+                                    <p class="blog-category">Design</p>
+
+                                    <span class="dot"></span>
+
+                                    <time datetime="2022-02-23">Sep 03, 2022</time>
+                                </div>
+
+                                <h3 class="h3 blog-item-title">AI-ML Virtual Internship</h3>
+
+
+
+                            </div>
+
+                        </a>
+                    </li>
+
+            
+
+                    <li class="blog-post-item">
+                        <a href="#">
+
+                            <figure class="blog-banner-box">
+                                <img src="./certifications\Bootcamp_page-0001.jpg" alt="Design conferences in 2022"
+                                    loading="lazy">
+                            </figure>
+
+                            <div class="blog-content">
+
+                                <div class="blog-meta">
+                                    <p class="blog-category">Design</p>
+
+                                    <span class="dot"></span>
+
+                                    <time datetime="2022-02-23">Sep 23, 2021</time>
+                                </div>
+
+                                <h3 class="h3 blog-item-title">4.0 Tech Online Bootcamp</h3>
+
+
+
+                            </div>
+
+                        </a>
+                    </li>
+
+                    <li class="blog-post-item">
+                        <a href="#">
+
+                            <figure class="blog-banner-box">
+                                <img src="./certifications\Aptitude_page-0001.jpg" alt="Best fonts every designer"
+                                    loading="lazy">
+                            </figure>
+
+                            <div class="blog-content">
+
+                                <div class="blog-meta">
+                                    <p class="blog-category">Design</p>
+
+                                    <span class="dot"></span>
+
+                                    <time datetime="2022-02-23">Nov 1, 2023</time>
+                                </div>
+
+                                <h3 class="h3 blog-item-title">Aptitude</h3>
+
+
+
+                            </div>
+
+                        </a>
+                    </li>
+
+                    <li class="blog-post-item">
+                        <a href="#">
+
+                            <figure class="blog-banner-box">
+                                <img src="./certifications\Techno Quiz Winner_page-0001.jpg"
+                                    alt="Design conferences in 2022" loading="lazy">
+                            </figure>
+
+                            <div class="blog-content">
+
+                                <div class="blog-meta">
+                                    <p class="blog-category">Design</p>
+
+                                    <span class="dot"></span>
+
+                                    <time datetime="2022-02-23">Sep 15, 2021</time>
+                                </div>
+
+                                <h3 class="h3 blog-item-title">Techno Quiz Winner</h3>
+
+
+
+                            </div>
+
+                        </a>
+                    </li>
+                    <!-- Additional certificates follow the same structure -->
+                </ul>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Educational Details</h2>
+        <div class="education-card">
+            <h3>Certified Full-Stack Java Development</h3>
+            <p>QSPIDER, WAKAD</p>
+            <span class="year">2024</span>
+        </div>
+        <div class="education-card">
+            <h3>B. Tech in Electronics and Telecommunication Engineering</h3>
+            <p>Institution: D.Y. Patil College of Engineering and Technology, Kolhapur</p>
+            <span class="year">77.45% (2024)</span>
+        </div>
+        <div class="education-card">
+            <h3>Higher Secondary School (12th)</h3>
+            <p>Board: Maharashtra State Board</p>
+            <span class="year">71.20% (2020)</span>
+        </div>
+        <div class="education-card">
+            <h3>Secondary School (10th)</h3>
+            <p>Board: Maharashtra State Board</p>
+            <span class="year">85.40% (2018)</span>
+        </div>
+    </section>
+
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="card">
+            <p>Email: <a href="mailto:rutik.gurav1504@gmail.com">rutik.gurav1504@gmail.com</a></p>
+            <p>Phone: +91 9011715158</p>
+            <p>Current Address: Pune, India</p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/rutik-gurav-b4b137221/" target="_blank">Rutik Gurav</a>
+            </p>
+            <p>GitHub: <a href="https://github.com/gurav-rutik" target="_blank">Rutik Gurav</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Rutik Gurav. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
